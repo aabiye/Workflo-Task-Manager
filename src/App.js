@@ -11,14 +11,8 @@ function App() {
       <div className="container">
         <h3 className="title">WorkFlo</h3>
         <form className="form_todo">
-          <input
-            type="text"
-            className="form_control"
-            placeholder="Enter To Do"
-            name="text"
-          />
-          <button type="button" className="btn">
-            <FaPlusCircle className="icon" />
+          <button type="button" className="btn btn-primary">
+            Create New Task
           </button>
         </form>
 
