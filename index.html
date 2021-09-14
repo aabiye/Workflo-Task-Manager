@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Popup Form/popup.css">
+
+    <!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>WorkFlo Task Manager</title>
+</head>
+<body>
+    <!-- Trigger/Open The Popup -->
+    <button id="myBtn">Create a Task</button>
+
+    <!-- The Modal Popup -->
+    <div id="myModal" class="modal">
+
+    <!-- Popup content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="taskname">Task Name</label>
+                    <input type="text" class="form-control" placeholder="Enter the task name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="example-date-input">Due Date:</label>
+                    <input class="form-control" type="date" value="" id="dueDate">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="exampleFormControlTextarea1">Task Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your task's description"></textarea>
+                </div>
+                <div class="custom-control custom-radio col-md-6">
+                    <label for="exampleFormControlSelect2">Priority</label>
+                    <br>
+                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                    <label class="custom-control-label" for="customControlValidation2">High</label>
+                    <br>
+                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                    <label class="custom-control-label" for="customControlValidation2">Medium</label>
+                    <br>
+                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                    <label class="custom-control-label" for="customControlValidation2">Low</label>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-check col-md-12" id="assigned">
+                    <label for="exampleFormControlSelect2">Assigned to</label>
+                    <select class="form-control">
+                    <option>Aden Abiye</option>
+                    <option>Ayman Zaki</option>
+                    <option>Ashley Umetsu</option>
+                    <option>Dan Sohval</option>
+                    <option>Linda Eng</option>
+                    </select>
+                </div>
+            <button type="submit" class="btn btn-primary" id="submitbutton">Submit</button>
+        </div>
+    </div>
+
+    </div>
+</body>
+<footer>
+    <script src="Popup Form/Popup.js"></script>
+</footer>
+</html>
