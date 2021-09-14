@@ -1,83 +1,114 @@
-import logo from "./logo.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React, { useState, useEffect } from "react";
+import "./App.css";
 import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
-import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [inprogress, setInprogress] = useState([]);
+  const [completed, setCompleted] = useState([]);
+  const [input, setInput] = useState("");
+  const addTodo = () => {
+    const todo = {
+      id: Math.floor(Math.random() * 1000),
+      text: input,
+    };
+    setTodos([todo, ...todos]);
+  };
+
+  const addToProgress = (id) => {
+    const item = todos.find((x) => x.id === id);
+    setInprogress([item, ...inprogress]);
+    const filterarray = todos.filter((x) => x.id !== id);
+    setTodos(filterarray);
+  };
+  const deleteTodo = (id) => {
+    const filterarray = todos.filter((x) => x.id !== id);
+    setTodos(filterarray);
+  };
+  const deleteInProgress = (id) => {
+    const filterarray = inprogress.filter((x) => x.id !== id);
+    setInprogress(filterarray);
+  };
+
+  const addtoCompleted = (id) => {
+    const item = inprogress.find((x) => x.id === id);
+    setCompleted([item, ...completed]);
+    const filterarray = inprogress.filter((x) => x.id !== id);
+    setInprogress(filterarray);
+  };
+  useEffect(() => {}, [todos, inprogress]);
+
+  const deleteCompleted = (id) => {
+    const filterarray = completed.filter((x) => x.id !== id);
+    setCompleted(filterarray);
+  };
+
   return (
     <div className="App">
       <div className="container">
-        <h3 className="title">WorkFlo</h3>
+        <h3 className="title">WORKFLO</h3>
+        
         <form className="form_todo">
-          <button type="button" className="btn btn-primary">
-            Create New Task
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Enter Your Todo"
+            name="text"
+          />
+          <button type="button" className="btn" onClick={() => addTodo()}>
+            <FaPlusCircle className="icon" />
           </button>
         </form>
 
-        <CardGroup className="todos_wrapper">
- 
-          <Card>
-            <Card.Body>
-              <Card.Title>TO DO</Card.Title>
-              <Card.Text>TASK</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Body>
-              <Card.Title>IN PROGRESS</Card.Title>
-              <Card.Text>TASK</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Body>
-              <Card.Title>COMPLETED</Card.Title>
-              <Card.Text>TASK</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
-            </Card.Footer>
-          </Card>
-        </CardGroup>
-        {/* <div className="todos_wrapper">
+        <div className="todos_wrapper">
           <div className="todos_list">
-            <h3 className="todos_title">Todos List</h3>
-            <div className="todos_card">
-              <p className="card_text">Task</p>
-              <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
-            </div>
+            <h3 className="todo_title">Todos List</h3>
+            {todos.map((item, index) => (
+              <div className="todo_card" key={item.id}>
+                <p className="card_text">{item.text}</p>
+                <FaCheck
+                  onClick={() => addToProgress(item.id)}
+                  className="icon-check-todo"
+                />
+                <FaTrash
+                  onClick={() => deleteTodo(item.id)}
+                  className="icon-trash-todo"
+                />
+              </div>
+            ))}
           </div>
-          <div>
-            <div className="todos_list">
-              <h3 className="todos_title">In Progress</h3>
-              <div className="progress_card">
-                <p className="card_text">Task</p>
-                <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
+          <div className="todos_list">
+            <h3 className="todo_title">InProgress</h3>
+            {inprogress.map((item, index) => (
+              <div className="progress_card" key={item.key}>
+                <p className="card_text">{item.text}</p>
+                <FaCheck
+                  onClick={() => addtoCompleted(item.id)}
+                  className="icon-progress-todo"
+                />
+                <FaTrash
+                  onClick={() => deleteInProgress(item.id)}
+                  className="icon-trash-todo"
+                />
               </div>
-            </div>
-            <div className="todos_list">
-              <h3 className="todos_title">Completed</h3>
-              <div className="completed_card">
-              <FaCheck className="icon-check-todo" />
-              <FaTrash className="icon-trash-todo" />
+            ))}
+          </div>
+          <div className="todos_list">
+            <h3 className="todo_title">Completed</h3>
+            {completed.map((item, index) => (
+              <div className="completed_card" key={item.id}>
+                <p className="card_text">{item.text}</p>
+                <FaTrash
+                  onClick={() => deleteCompleted(item.id)}
+                  className="icon-trash-todo"
+                />
               </div>
-            </div>
-          </div> */}
+            ))}
+          </div>
         </div>
       </div>
-    
+    </div>
   );
 }
 
