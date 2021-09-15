@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import CreateTask from './Modals/CreateTask'
 import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
-import { Popup } from "./components/Popup";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+  const [modal, setModal] = useState(false);
   const [todos, setTodos] = useState([]);
   const [inprogress, setInprogress] = useState([]);
   const [completed, setCompleted] = useState([]);
-  const [input, setInput] = useState("");
-  const addTodo = () => {
-    const todo = {
-      id: Math.floor(Math.random() * 1000),
-      text: input,
-    };
-    setTodos([todo, ...todos]);
-  };
+
+  const toggle = () => {
+    setModal(!modal);
+  }
 
   const addToProgress = (id) => {
     const item = todos.find((x) => x.id === id);
@@ -45,73 +43,65 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="container">
-        <h3 className="title">WORKFLO</h3>
-        
-        <form className="form_todo">
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter Your Todo"
-            name="text"
-          />
-          <button type="button" className="btn" onClick={() => addTodo()}>
-            <FaPlusCircle className="icon" />
-          </button>
-          <button id="myBtn">Create a Task</button>
-        </form>
-
-
-        <div className="todos_wrapper">
-          <div className="todos_list">
-            <h3 className="todo_title">Todos List</h3>
-            {todos.map((item, index) => (
-              <div className="todo_card" key={item.id}>
-                <p className="card_text">{item.text}</p>
-                <FaCheck
-                  onClick={() => addToProgress(item.id)}
-                  className="icon-check-todo"
-                />
-                <FaTrash
-                  onClick={() => deleteTodo(item.id)}
-                  className="icon-trash-todo"
-                />
-              </div>
-            ))}
+    <>
+      <div className="App">
+        <div className="container">
+          <div className = "header">
+            <h3 className="title">WORK<span class="flo">FLO</span></h3>
+            <button className = "btn btn-primary" onClick = {() => setModal(true)}>Create a Task</button>
           </div>
-          <div className="todos_list">
-            <h3 className="todo_title">InProgress</h3>
-            {inprogress.map((item, index) => (
-              <div className="progress_card" key={item.key}>
-                <p className="card_text">{item.text}</p>
-                <FaCheck
-                  onClick={() => addtoCompleted(item.id)}
-                  className="icon-progress-todo"
-                />
-                <FaTrash
-                  onClick={() => deleteInProgress(item.id)}
-                  className="icon-trash-todo"
-                />
-              </div>
-            ))}
+          <div className = "task-container">
           </div>
-          <div className="todos_list">
-            <h3 className="todo_title">Completed</h3>
-            {completed.map((item, index) => (
-              <div className="completed_card" key={item.id}>
-                <p className="card_text">{item.text}</p>
-                <FaTrash
-                  onClick={() => deleteCompleted(item.id)}
-                  className="icon-trash-todo"
-                />
-              </div>
-            ))}
+          <div className="todos_wrapper">
+            <div className="todos_list">
+              <h3 className="todo_title">Todo List</h3>
+              {todos.map((item, index) => (
+                <div className="todo_card" key={item.id}>
+                  <p className="card_text">{item.text}</p>
+                  <FaCheck
+                    onClick={() => addToProgress(item.id)}
+                    className="icon-check-todo"
+                  />
+                  <FaTrash
+                    onClick={() => deleteTodo(item.id)}
+                    className="icon-trash-todo"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="todos_list">
+              <h3 className="todo_title">InProgress</h3>
+              {inprogress.map((item, index) => (
+                <div className="progress_card" key={item.key}>
+                  <p className="card_text">{item.text}</p>
+                  <FaCheck
+                    onClick={() => addtoCompleted(item.id)}
+                    className="icon-progress-todo"
+                  />
+                  <FaTrash
+                    onClick={() => deleteInProgress(item.id)}
+                    className="icon-trash-todo"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="todos_list">
+              <h3 className="todo_title">Completed</h3>
+              {completed.map((item, index) => (
+                <div className="completed_card" key={item.id}>
+                  <p className="card_text">{item.text}</p>
+                  <FaTrash
+                    onClick={() => deleteCompleted(item.id)}
+                    className="icon-trash-todo"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <CreateTask toggle = {toggle} modal = {modal} />
+    </>
   );
 }
 

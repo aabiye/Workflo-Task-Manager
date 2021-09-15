@@ -1,20 +1,33 @@
+
 .App {
   text-align: center;
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.header {
+  background-color: #E9EEF6;
+  padding-bottom: 20px;
+}
+
+.flo {
+  color: purple;
+  font-style: italic;
+}
+
+.btn-primary {
+  margin-top: 15px;
+}
+
 .container {
   width: 70vw;
   height: 90vh;
-  background: #663046;
-  border-radius: 10px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.8);
+  background:white;
 }
 .title {
-  color: #fff;
+  color: black;
   font-size: 40px;
   font-weight: 700;
 }
@@ -22,7 +35,7 @@
   content: '';
   width: 180px;
   height: 2px;
-  background-color: #fff;
+  background-color: black;
   display: block;
   margin: auto;
 }
@@ -45,16 +58,16 @@
 .container .form_todo .btn {
   width: 10%;
   height: 35px;
-  border: 1px solid #fff;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
   background: transparent;
   font-size: 14px;
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 .container .form_todo .btn:hover {
-  background: #fff;
+  background: black;
   color: #276c91;
 }
 
@@ -68,14 +81,14 @@
 .todo_title {
   font-size: 20px;
   font-weight: 700;
-  color: #fff;
+  color: black;
 }
 
 .todo_title::after {
   content: '';
   width: 100px;
   height: 2px;
-  background-color: #fff;
+  background-color: black;
   display: block;
   margin: auto;
 }
@@ -91,7 +104,7 @@
   width: 100%;
   height: auto;
   color: #276c91;
-  background: #fff;
+  background: black;
   padding: 2px 5px;
   border-radius: 5px;
   margin-top: 3px;
