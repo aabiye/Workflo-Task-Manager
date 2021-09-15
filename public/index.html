@@ -11,9 +11,6 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-    <link rel="stylesheet" href="popup.css">
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,60 +20,9 @@
   </head>
   <body> 
     <!-- Trigger/Open The Popup -->
-    <button id="myBtn">Create a Task</button>
     <div id="root"></div>
-    <!-- The Modal Popup -->
-    <div id="myModal" class="modal">
-
-    <!-- Popup content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="taskname">Task Name</label>
-                    <input type="text" class="form-control" placeholder="Enter the task name">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="example-date-input">Due Date:</label>
-                    <input class="form-control" type="date" value="" id="dueDate">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="exampleFormControlTextarea1">Task Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your task's description"></textarea>
-                </div>
-                <div class="custom-control custom-radio col-md-6">
-                    <label for="exampleFormControlSelect2">Priority</label>
-                    <br>
-                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                    <label class="custom-control-label" for="customControlValidation2">High</label>
-                    <br>
-                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                    <label class="custom-control-label" for="customControlValidation2">Medium</label>
-                    <br>
-                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                    <label class="custom-control-label" for="customControlValidation2">Low</label>
-                </div>
-            </div>
-            <br>
-            <div class="form-row">
-                <div class="form-check col-md-12" id="assigned">
-                    <label for="exampleFormControlSelect2">Assigned to</label>
-                    <select class="form-control">
-                    <option>Aden Abiye</option>
-                    <option>Ayman Zaki</option>
-                    <option>Ashley Umetsu</option>
-                    <option>Dan Sohval</option>
-                    <option>Linda Eng</option>
-                    </select>
-                </div>
-            <button type="submit" class="btn btn-primary" id="submitbutton">Submit</button>
-        </div>
-    </div>
+    
   </body>
   <footer>
-    <script src="Popup.js"></script>
   </footer>
 </html>

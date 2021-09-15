@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
+import { Popup } from "./components/Popup";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -59,7 +60,9 @@ function App() {
           <button type="button" className="btn" onClick={() => addTodo()}>
             <FaPlusCircle className="icon" />
           </button>
+          <button id="myBtn">Create a Task</button>
         </form>
+
 
         <div className="todos_wrapper">
           <div className="todos_list">
