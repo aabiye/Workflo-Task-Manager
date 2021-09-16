@@ -48,13 +48,36 @@ function App() {
         <div className="container">
           <div className = "header">
             <h3 className="title">WORK<span class="flo">FLO</span></h3>
-            <button className = "btn btn-primary" onClick = {() => setModal(true)}>Create a Task</button>
+            <div class="row">
+              <div class="col">
+                <div class="taskbtn">
+                  <button className = "btn btn-outline-primary btn-lg btn-block rounded-pill" onClick = {() => setModal(true)}>Create a Task</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group" id="search-container">
+                  <input type="search" class="form-control rounded" placeholder="Search for a task" aria-label="Search"
+                  aria-describedby="search-addon" />
+                  <button type="button" class="btn btn-outline-primary">Search</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="select-header">
+                  <select class="form-select form-select-lg" aria-label="select something">
+                    <option selected>Filter By</option>
+                    <option value="1">Priority</option>
+                    <option value="2">Asignee</option>
+                    <option value="3">Alphabetical</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </div>
           <div className = "task-container">
           </div>
           <div className="todos_wrapper">
             <div className="todos_list">
-              <h3 className="todo_title">Todo List</h3>
+              <h3 className="todo_title todo">Todo List</h3>
               {todos.map((item, index) => (
                 <div className="todo_card" key={item.id}>
                   <p className="card_text">{item.text}</p>
@@ -70,7 +93,7 @@ function App() {
               ))}
             </div>
             <div className="todos_list">
-              <h3 className="todo_title">InProgress</h3>
+              <h3 className="todo_title inprogress">In Progress</h3>
               {inprogress.map((item, index) => (
                 <div className="progress_card" key={item.key}>
                   <p className="card_text">{item.text}</p>
@@ -86,7 +109,7 @@ function App() {
               ))}
             </div>
             <div className="todos_list">
-              <h3 className="todo_title">Completed</h3>
+              <h3 className="todo_title complete">Completed</h3>
               {completed.map((item, index) => (
                 <div className="completed_card" key={item.id}>
                   <p className="card_text">{item.text}</p>
