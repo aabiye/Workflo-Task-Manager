@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import CreateTask from './Modals/CreateTask'
+import CreateTask from "./CreateTask";
 import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -17,6 +17,7 @@ function App() {
   const addToProgress = (id) => {
     const item = todos.find((x) => x.id === id);
     setInprogress([item, ...inprogress]);
+
     const filterarray = todos.filter((x) => x.id !== id);
     setTodos(filterarray);
   };
