@@ -9,7 +9,8 @@
 
 .header {
   background-color: #E9EEF6;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
+  padding-top: 15px;
 }
 
 .flo {
@@ -17,8 +18,26 @@
   font-style: italic;
 }
 
-.btn-primary {
+.btn-block {
   margin-top: 15px;
+}
+
+.taskbtn {
+  text-align: left;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#search-container {
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.select-header {
+  margin-top: 16px;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 .container {
@@ -31,14 +50,15 @@
   font-size: 40px;
   font-weight: 700;
 }
-.title::after {
+/* .title::after {
   content: '';
   width: 180px;
   height: 2px;
   background-color: black;
   display: block;
   margin: auto;
-}
+} */
+
 .container .form_todo {
   width: 80%;
   margin: auto;
@@ -80,18 +100,36 @@
 
 .todo_title {
   font-size: 20px;
-  font-weight: 700;
-  color: black;
+  font-weight: 500;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-.todo_title::after {
+.todo {
+  background-color: rgb(139, 53, 139);
+}
+
+.inprogress {
+  background-color: rgb(209, 121, 20);
+}
+
+.complete {
+  background-color: rgb(16, 131, 16);
+}
+
+/* .todo_title::after {
   content: '';
   width: 100px;
   height: 2px;
   background-color: black;
   display: block;
   margin: auto;
-}
+} */
+
 .todos_list {
   width: 31%;
   height: 68vh;
