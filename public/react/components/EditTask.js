@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const CreateTaskPopup = ({ modal, toggle, save }) => {
+const EditTask = ({ modal, toggle, updateTask, taskObj }) => {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
   const [assignedTo, setAssignedTo] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [priorityLevel, setPriorityLevel] = useState("");
- 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(e.target.value);
     if (name === "taskName") {
       setTaskName(value);
     } else if (name === "assignedTo") {
@@ -24,24 +23,31 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
     }
   };
 
-  const handleSave = (e) => {
+  useEffect(() => {
+    setTaskName(taskObj.Name);
+    setDescription(taskObj.Description);
+    setAssignedTo(taskObj.AssignedTo);
+    setDueDate(taskObj.DueDate);
+    setPriorityLevel(taskObj.PriorityLevel);
+  }, []);
+
+  const handleUpdate = (e) => {
     e.preventDefault();
-    let taskObj = {};
-    taskObj["Name"] = taskName;
+    let tempObj = {};
+    tempObj["Name"] = taskName;
+    tempObj["Description"] = description;
     taskObj["AssignedTo"] = assignedTo;
-    taskObj["Description"] = description;
     taskObj["DueDate"] = dueDate;
     taskObj["PriorityLevel"] = priorityLevel;
-    save(taskObj);
+    updateTask(tempObj);
   };
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+      <ModalHeader toggle={toggle}>Update Task</ModalHeader>
       <ModalBody>
-      <form>
         <div className="form-group">
-          <label class="form-lable required">Task Name</label>
+          <label>Task Name</label>
           <input
             type="text"
             className="form-control"
@@ -50,9 +56,8 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             name="taskName"
           />
         </div>
-        <br/>
         <div className="form-group">
-          <label class="form-lable">Task Description</label>
+          <label>Description</label>
           <textarea
             rows="5"
             className="form-control"
@@ -61,29 +66,26 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             name="description"
           ></textarea>
         </div>
-        <br/>
         <div className="form-group">
-          <label class="form-lable">Assigned To</label>
+          <label>Assigned To</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             value={assignedTo}
             onChange={handleChange}
             name="assignedTo"
-          ></input>
+          />
         </div>
-        <br/>
         <div className="form-group">
-          <label class="form-lable">Due Date</label>
+          <label>Due Date</label>
           <input
             type="date"
-            class="date"
+            className="date"
             value={dueDate}
             onChange={handleChange}
             name="dueDate"
-          ></input>
-
-          <label class="Priority">Priority Level</label>
+          />
+          <label>Priority Level</label>
           <select
             className="select"
             value={priorityLevel}
@@ -96,11 +98,10 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             <option value="3">Low</option>
           </select>
         </div>
-        </form>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={handleSave}>
-          Create
+        <Button color="primary" onClick={handleUpdate}>
+          Update
         </Button>{" "}
         <Button color="secondary" onClick={toggle}>
           Cancel
@@ -110,4 +111,4 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
   );
 };
 
-export default CreateTaskPopup;
+export default EditTask;
