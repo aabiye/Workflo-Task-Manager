@@ -1,198 +1,266 @@
+/*to design the header*/
+.header {
+  text-align: center;
+  background-color: #e9eef6;
+  padding-bottom: 25px;
+  padding-top: 15px;
+}
 
-.App {
-    text-align: center;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .header {
-    background-color: #E9EEF6;
-    padding-bottom: 25px;
-    padding-top: 15px;
-  }
-  
-  .flo {
-    color: purple;
-    font-style: italic;
-  }
-  
-  .btn-block {
-    margin-top: 15px;
-  }
-  
-  .taskbtn {
-    text-align: left;
-    margin-right: 5px;
-    margin-left: 10px;
-  }
-  
-  #search-container {
-    margin-top: 15px;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-  
-  .select-header {
-    margin-top: 16px;
-    margin-right: 10px;
-    margin-left: 5px;
-  }
-  
-  .container {
-    width: 70vw;
-    height: 90vh;
-    background:white;
-  }
-  .title {
-    color: black;
-    font-size: 40px;
-    font-weight: 700;
-  }
-  /* .title::after {
-    content: '';
-    width: 180px;
-    height: 2px;
-    background-color: black;
-    display: block;
-    margin: auto;
-  } */
-  
-  .container .form_todo {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .container .form_todo .form-control {
-    width: 87%;
-    height: 15px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-  } 
-  .container .form_todo .btn {
-    width: 10%;
-    height: 35px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    background: transparent;
-    font-size: 14px;
-    color: black;
-    cursor: pointer;
-  }
-  .container .form_todo .btn:hover {
-    background: black;
-    color: #276c91;
-  }
-  
-  .todos_wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-top: 20px;
-  }
-  
-  .todo_title {
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 2px solid black;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-  
-  .todo {
-    background-color: rgb(139, 53, 139);
-  }
-  
-  .inprogress {
-    background-color: rgb(209, 121, 20);
-  }
-  
-  .complete {
-    background-color: rgb(16, 131, 16);
-  }
-  
-  /* .todo_title::after {
-    content: '';
-    width: 100px;
-    height: 2px;
-    background-color: black;
-    display: block;
-    margin: auto;
-  } */
-  
-  .todos_list {
-    width: 31%;
-    height: 68vh;
-    display: flex;
-    flex-direction: column;
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
-  }
-  .todo_card {
-    width: 100%;
-    height: auto;
-    color: #276c91;
-    background: black;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-top: 3px;
-    margin-right: 6px;
-  }
-  .card_text {
-    margin: auto;
-  }
-  
-  .icon-check-todo {
-    background: #276c91;
-    color: #fff;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .icon-trash-todo {
-    background: red;
-    color: #fff;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-  .progress_card {
-    width: 100%;
-    height: auto;
-    color: #000000;
-    background: yellow;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-top: 3px;
-  }
-  .icon-progress-todo {
-    background: #fff;
-    color: green;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-  .completed_card {
-    width: 100%;
-    height: auto;
-    color: #fff;
-    background: #00b09b;
-    padding: 10px 5px;
-    border-radius: 5px;
-    margin-top: 3px;
-  }
+.flo {
+  color: purple;
+  font-style: italic;
+}
+
+.btn-block {
+  margin-top: 15px;
+}
+
+.taskbtn {
+  text-align: left;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#search-container {
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.select-header {
+  margin-top: 16px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.container {
+  width: 70vw;
+  height: 90vh;
+  background: white;
+}
+.title {
+  color: black;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* end to design the header*/
+
+/* .card-container{
+  height: 300px;
+  width: 300px;
+  box-shadow: 0px 3px 50px #A5A5A5;
+} */
+
+.card-wrapper {
+  width: 400px;
+  height: 250px;
+  box-shadow: 0px 3px 50px #a5a5a5;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  width: 100%;
+  height: 2%;
+}
+
+.task-holder {
+  width: 100%;
+  height: 98%;
+  padding: 10px 10px;
+  /* display : flex;
+  flex-direction: column; */
+  position: relative;
+}
+
+.card-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 80px;
+  height: 30px;
+  padding: 1px 1px !important;
+  text-align: center;
+}
+
+.task-container {
+  height: 600px;
+  width: 100%;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  background-color: #f6f7f8;
+  padding: 40px 100px;
+}
+
+/*to design the cards*/
+
+.todos_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.todo_title {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.todo {
+  background-color: rgb(139, 53, 139);
+  text-align: center;
+}
+
+.inprogress {
+  background-color: rgb(209, 121, 20);
+  text-align: center;
+}
+
+.complete {
+  background-color: rgb(16, 131, 16);
+  text-align: center;
+}
+
+.todos_list {
+  width: 31%;
+  height: 68vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo_card {
+  width: 100%;
+  height: auto;
+  color: #276c91;
+  background: black;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 6px;
+}
+
+/* the second method design*/
+
+.container {
+  width: 70vw;
+  height: 90vh;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.8);
+}
+
+.container .form_todo {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .form_todo .form-control {
+  width: 87%;
+  height: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+.container .form_todo .btn {
+  width: 10%;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+}
+.container .form_todo .btn:hover {
+  background: black;
+  color: #276c91;
+}
+
+.todos_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.todo_title {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+
+.todos_list {
+  width: 31%;
+  height: 68vh;
+  display: flex;
+  flex-direction: column;
+}
+.todo_card {
+  width: 100%;
+  height: auto;
+  color: black;
+  background: green;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 6px;
+}
+.card_text {
+  margin: auto;
+}
+
+.icon-check-todo {
+  background: #276c91;
+  color: black;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.icon-trash-todo {
+  background: red;
+  color: black;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.progress_card {
+  width: 100%;
+  height: auto;
+  color: #000000;
+  background: yellow;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+.icon-progress-todo {
+  background: black;
+  color: green;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.completed_card {
+  width: 100%;
+  height: auto;
+  color: black;
+  background: #00b09b;
+  padding: 10px 5px;
+  border-radius: 5px;
+  margin-top: 3px;
+}
