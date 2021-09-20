@@ -91,9 +91,9 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             name="priorityName"
           >
             <option value="0">Select:</option>
-            <option value="1">High</option>
-            <option value="2">Medium</option>
-            <option value="3">Low</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
           </select>
         </div>
         </form>
