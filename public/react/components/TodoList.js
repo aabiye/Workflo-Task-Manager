@@ -100,40 +100,38 @@ const TodoList = () => {
     <>
       <div className="header">
         <h3 className="title">
-          WORK<span class="flo">FLO</span>
+          WORK<span className="flo">FLO</span>
         </h3>
-        <div class="row">
-          <div class="col">
-            <div class="taskbtn">
+        <div className="row">
+          <div className="col taskbtn">
               <button
-                className="btn btn-outline-primary btn-lg btn-block rounded-pill"
+                className="btn btn-outline-primary form-control rounded-pill" id="creatTaskBtn"
                 onClick={() => setModal(true)}
               >
                 Create a Task
               </button>
-            </div>
           </div>
-          <div class="col">
-            <div class="input-group" id="search-container">
+          <div className="col">
+            <div className="input-group" id="search-container">
               <input
                 type="search"
-                class="form-control rounded"
+                className="form-control rounded"
                 placeholder="Search for a task"
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
-              <button type="button" class="btn btn-outline-primary">
+              <button type="button" className="btn btn-outline-primary">
                 Search
               </button>
             </div>
           </div>
-          <div class="col">
-            <div class="select-header">
+          <div className="col">
+            <div className="select-header">
               <select
-                class="form-select form-select-lg"
+                className="form-select" id="filterBy"
                 aria-label="select something"
               >
-                <option selected>Filter By</option>
+                <option defaultValue>Filter By</option>
                 <option value="1">Priority</option>
                 <option value="2">Asignee</option>
                 <option value="3">Alphabetical</option>

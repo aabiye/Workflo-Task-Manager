@@ -11,20 +11,21 @@
   font-style: italic;
 }
 
-.btn-block {
+#creatTaskBtn {
   margin-top: 15px;
-}
-
-.taskbtn {
-  text-align: left;
-  margin-right: 5px;
-  margin-left: 10px;
+  text-align: center;
+  width: 90%;
 }
 
 #search-container {
   margin-top: 15px;
-  margin-right: 5px;
-  margin-left: 5px;
+  text-align: center;
+  width: 90%;
+}
+
+#filterBy {
+  text-align: left;
+  width: 90%;
 }
 
 .select-header {
