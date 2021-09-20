@@ -41,7 +41,7 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
       <ModalBody>
       <form>
         <div className="form-group">
-          <label class="form-lable required">Task Name</label>
+          <label className="form-lable required">Task Name</label>
           <input
             type="text"
             className="form-control"
@@ -52,7 +52,7 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
         </div>
         <br/>
         <div className="form-group">
-          <label class="form-lable">Task Description</label>
+          <label className="form-lable">Task Description</label>
           <textarea
             rows="5"
             className="form-control"
@@ -63,10 +63,10 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
         </div>
         <br/>
         <div className="form-group">
-          <label class="form-lable">Assigned To</label>
+          <label className="form-lable">Assigned To</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             value={assignedTo}
             onChange={handleChange}
             name="assignedTo"
@@ -74,16 +74,16 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
         </div>
         <br/>
         <div className="form-group">
-          <label class="form-lable">Due Date</label>
+          <label className="form-lable">Due Date</label>
           <input
             type="date"
-            class="date"
+            className="date"
             value={dueDate}
             onChange={handleChange}
             name="dueDate"
           ></input>
 
-          <label class="Priority">Priority Level</label>
+          <label className="Priority">Priority Level</label>
           <select
             className="select"
             value={priorityLevel}
@@ -91,9 +91,9 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             name="priorityName"
           >
             <option value="0">Select:</option>
-            <option value="1">High</option>
-            <option value="2">Medium</option>
-            <option value="3">Low</option>
+            <option value="High Priority">High</option>
+            <option value="Medium Priority">Medium</option>
+            <option value="Low priority">Low</option>
           </select>
         </div>
         </form>
