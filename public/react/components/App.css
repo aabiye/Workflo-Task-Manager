@@ -1,7 +1,7 @@
 /*to design the header*/
 .header {
   text-align: center;
-  background-color: #e9eef6;
+  background-color: #dbe3f0;
   padding-bottom: 25px;
   padding-top: 15px;
 }
@@ -198,7 +198,7 @@
 .todo_title {
   font-size: 20px;
   font-weight: 700;
-  color: black;
+  color: white;
 }
 
 .todos_list {
