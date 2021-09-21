@@ -99,13 +99,13 @@ const TodoList = () => {
   return (
     <>
       <div className="header">
-        <h3 className="title">
+        <h2 className="title">
           WORK<span className="flo">FLO</span>
-        </h3>
+        </h2>
         <div className="row">
           <div className="col taskbtn">
               <button
-                className="btn btn-outline-primary form-control rounded-pill" id="creatTaskBtn"
+                className="btn btn-outline-dark form-control rounded-pill" id="creatTaskBtn"
                 onClick={() => setModal(true)}
               >
                 Create a Task
@@ -120,7 +120,7 @@ const TodoList = () => {
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
-              <button type="button" className="btn btn-outline-primary">
+              <button type="button" className="btn btn-outline-dark">
                 Search
               </button>
             </div>
@@ -180,6 +180,7 @@ const TodoList = () => {
             name="text"
           />
           <button type="button" className="btn" onClick={() => addTodo()}>
+          Add a task
             <FaPlusCircle className="icon" />
           </button>
         </form>
