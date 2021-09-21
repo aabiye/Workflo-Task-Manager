@@ -181,7 +181,54 @@ const TodoList = () => {
           />
           <button type="button" className="btn" onClick={() => addTodo()}>
           Add a task
-            <FaPlusCircle className="icon" />
+            <FaPlusCircle className="icon" /
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            >
           </button>
         </form>
 
