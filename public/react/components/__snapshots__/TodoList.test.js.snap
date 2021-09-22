@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Task component renders Todo List 1`] = `
+Array [
+  <div
+    className="header"
+  >
+    <h2
+      className="title"
+    >
+      WORK
+      <span
+        className="flo"
+      >
+        FLO
+      </span>
+    </h2>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="taskbtn"
+        >
+          <button
+            className="btn btn-outline-dark btn-block rounded-pill"
+            id="creatTaskBtn"
+            onClick={[Function]}
+          >
+            Create a Task
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <div
+          className="input-group"
+          id="search-container"
+        >
+          <input
+            aria-describedby="search-addon"
+            aria-label="Search"
+            className="form-control rounded"
+            placeholder="Search for a task"
+            type="search"
+          />
+          <button
+            className="btn btn-outline-dark"
+            type="button"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <div
+          className="select-header"
+        >
+          <select
+            aria-label="select something"
+            className="form-select"
+          >
+            <option
+              defaultValue={true}
+            >
+              Filter By
+            </option>
+            <option
+              value="1"
+            >
+              Priority
+            </option>
+            <option
+              value="2"
+            >
+              Asignee
+            </option>
+            <option
+              value="3"
+            >
+              Alphabetical
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="task-container"
+  >
+    <div
+      className="todos_wrapper"
+    >
+      <div
+        className="todos_list"
+      >
+        <h3
+          className="todo_title todo"
+        >
+          To Do
+        </h3>
+      </div>
+      <div
+        className="todos_list"
+      >
+        <h3
+          className="todo_title inprogress"
+        >
+          In Progress
+        </h3>
+      </div>
+      <div
+        className="todos_list"
+      >
+        <h3
+          className="todo_title complete"
+        >
+          Completed
+        </h3>
+      </div>
+    </div>
+  </div>,
+]
+`;

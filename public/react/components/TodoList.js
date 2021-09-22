@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CreateTask from "./CreateTask";
 import Card from "./Card";
-import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
 
 
 
@@ -101,11 +100,11 @@ const TodoList = () => {
     <>
       <div className="header">
         <h2 className="title">
-          WORK<span class="flo">FLO</span>
+          WORK<span className="flo">FLO</span>
         </h2>
-        <div class="row">
-          <div class="col">
-            <div class="taskbtn">
+        <div className="row">
+          <div className="col">
+            <div className="taskbtn">
               <button
                 className="btn btn-outline-dark btn-block rounded-pill" id="creatTaskBtn"
                 onClick={() => setModal(true)}
@@ -115,27 +114,27 @@ const TodoList = () => {
             </div>
           </div>
 
-          <div class="col">
-            <div class="input-group" id="search-container">
+          <div className="col">
+            <div className="input-group" id="search-container">
               <input
                 type="search"
-                class="form-control rounded"
+                className="form-control rounded"
                 placeholder="Search for a task"
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
-              <button type="button" class="btn btn-outline-dark">
+              <button type="button" className="btn btn-outline-dark">
                 Search
               </button>
             </div>
           </div>
-          <div class="col">
-            <div class="select-header">
+          <div className="col">
+            <div className="select-header">
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="select something"
               >
-                <option selected>Filter By</option>
+                <option defaultValue>Filter By</option>
                 <option value="1">Priority</option>
                 <option value="2">Asignee</option>
                 <option value="3">Alphabetical</option>
@@ -156,7 +155,7 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <i class='bx bxs-check-square' onClick={() => addToProgress(item.id)}></i>
+                <i className='bx bxs-check-square' onClick={() => addToProgress(item.id)}></i>
                 <i className='bx bxs-trash' onClick={() => deleteTodo(item.id)}></i>
               </div>
             ))}
@@ -171,7 +170,7 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <i class='bx bxs-check-square' onClick={() => addtoCompleted(item.id)}></i>
+                <i className='bx bxs-check-square' onClick={() => addtoCompleted(item.id)}></i>
                 <i className='bx bxs-trash' onClick={() => deleteInProgress(item.id)}></i>
               </div>
             ))}

@@ -51,7 +51,7 @@ const CreateTaskPopup = ({
       <ModalBody>
         <form>
           <div className="form-group">
-            <label class="form-lable required">Task Name</label>
+            <label className="form-lable required">Task Name</label>
             <input
               type="text"
               className="form-control"
@@ -62,7 +62,7 @@ const CreateTaskPopup = ({
           </div>
           <br />
           <div className="form-group">
-            <label class="form-lable">Task Description</label>
+            <label className="form-lable">Task Description</label>
             <textarea
               rows="5"
               className="form-control"
@@ -73,7 +73,7 @@ const CreateTaskPopup = ({
           </div>
           <br />
           <div className="form-group">
-            <label class="Priority">Assigned To</label>
+            <label className="Priority">Assigned To</label>
             <select
               className="select"
               value={assignedTo}
@@ -90,16 +90,16 @@ const CreateTaskPopup = ({
           </div>
           <br />
           <div className="form-group">
-            <label class="form-lable">Due Date</label>
+            <label className="form-lable">Due Date</label>
             <input
               type="date"
-              class="date"
+              className="date"
               value={dueDate}
               onChange={handleChange}
               name="dueDate"
             ></input>
 
-            <label class="Priority">Priority Level</label>
+            <label className="Priority">Priority Level</label>
             <select
               className="select"
               value={priorityLevel}
