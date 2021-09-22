@@ -209,12 +209,13 @@
   flex-direction: column;
 }
 .todo_card {
-  width: 100%;
+  width: 80%;
   height: auto;
   color: black;
-  background: green;
+  background: white;
   padding: 2px 5px;
-  border-radius: 5px;
+  border: 2px solid rgb(139, 53, 139);
+  border-radius: 16px;
   margin-top: 3px;
   margin-right: 6px;
 }
@@ -240,12 +241,12 @@
   margin-top: 5px;
 }
 .progress_card {
-  width: 100%;
+  width: 80%;
   height: auto;
   color: #000000;
-  background: yellow;
   padding: 2px 5px;
-  border-radius: 5px;
+  border: 2px solid rgb(209, 121, 20);
+  border-radius: 16px;
   margin-top: 3px;
 }
 .icon-progress-todo {
@@ -258,11 +259,19 @@
   margin-top: 5px;
 }
 .completed_card {
-  width: 100%;
+  width: 80%;
   height: auto;
   color: black;
-  background: #00b09b;
-  padding: 10px 5px;
-  border-radius: 5px;
+  padding: 2px 5px;
+  border: 2px solid rgb(16, 131, 16);
+  border-radius: 16px;
   margin-top: 3px;
+}
+
+.bxs-trash {
+  color: rgb(24, 7, 7);
+}
+
+.bxs-check-square {
+  color: rgb(16, 131, 16);
 }
