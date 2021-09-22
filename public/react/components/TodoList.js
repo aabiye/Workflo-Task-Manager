@@ -8,32 +8,6 @@ import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
 const TodoList = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
-
-  // useEffect(() => {
-  //   let arr = localStorage.getItem("taskList");
-
-  //   if (arr) {
-  //     let obj = JSON.parse(arr);
-  //     setTaskList(obj);
-  //   }
-  // }, []);
-
-  // const deleteTask = (index) => {
-  //   let tempList = taskList;
-  //   tempList.splice(index, 1);
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  //   setTaskList(tempList);
-  //   window.location.reload();
-  // };
-
-  // const updateListArray = (obj, index) => {
-  //   let tempList = taskList;
-  //   tempList[index] = obj;
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  //   setTaskList(tempList);
-  //   window.location.reload();
-  // };
-
   
   const toggle = () => {
     setModal(!modal);
@@ -126,23 +100,21 @@ const TodoList = () => {
   return (
     <>
       <div className="header">
-        <h3 className="title">
+        <h2 className="title">
           WORK<span class="flo">FLO</span>
-        </h3>
+        </h2>
         <div class="row">
           <div class="col">
             <div class="taskbtn">
               <button
-                className="btn btn-outline-primary btn-lg btn-block rounded-pill"
+                className="btn btn-outline-dark btn-block rounded-pill" id="creatTaskBtn"
                 onClick={() => setModal(true)}
               >
                 Create a Task
               </button>
             </div>
           </div>
-          <div>
-            <div></div>
-          </div>
+
           <div class="col">
             <div class="input-group" id="search-container">
               <input
@@ -152,7 +124,7 @@ const TodoList = () => {
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
-              <button type="button" class="btn btn-outline-primary">
+              <button type="button" class="btn btn-outline-dark">
                 Search
               </button>
             </div>
@@ -160,7 +132,7 @@ const TodoList = () => {
           <div class="col">
             <div class="select-header">
               <select
-                class="form-select form-select-lg"
+                class="form-select"
                 aria-label="select something"
               >
                 <option selected>Filter By</option>
@@ -176,7 +148,7 @@ const TodoList = () => {
       <div className="task-container">
         <div className="todos_wrapper">
           <div className="todos_list">
-            <h3 className="todo_title todo">Todos List</h3>
+            <h3 className="todo_title todo">To Do</h3>
             {todos.map((item, index) => (
               <div className="todo_card" key={item.id}>
                 <p className="card_text">{item.taskName}</p>
@@ -184,20 +156,14 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <FaCheck
-                  onClick={() => addToProgress(item.id)}
-                  className="icon-check-todo"
-                />
-                <FaTrash
-                  onClick={() => deleteTodo(item.id)}
-                  className="icon-trash-todo"
-                />
+                <i class='bx bxs-check-square' onClick={() => addToProgress(item.id)}></i>
+                <i className='bx bxs-trash' onClick={() => deleteTodo(item.id)}></i>
               </div>
             ))}
           </div>
           
           <div className="todos_list">
-            <h3 className="todo_title inprogress">InProgress</h3>
+            <h3 className="todo_title inprogress">In Progress</h3>
             {inprogress.map((item, index) => (
               <div className="progress_card" key={item.key}>
                 <p className="card_text">{item.taskName}</p>
@@ -205,14 +171,8 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <FaCheck
-                  onClick={() => addtoCompleted(item.id)}
-                  className="icon-progress-todo"
-                />
-                <FaTrash
-                  onClick={() => deleteInProgress(item.id)}
-                  className="icon-trash-todo"
-                />
+                <i class='bx bxs-check-square' onClick={() => addtoCompleted(item.id)}></i>
+                <i className='bx bxs-trash' onClick={() => deleteInProgress(item.id)}></i>
               </div>
             ))}
           </div>
@@ -225,10 +185,7 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <FaTrash
-                  onClick={() => deleteCompleted(item.id)}
-                  className="icon-trash-todo"
-                />
+                <i className='bx bxs-trash' onClick={() => deleteCompleted(item.id)}></i>
               </div>
             ))}
           </div>
