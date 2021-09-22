@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CreateTask from "./CreateTask";
+import CreateTaskPopup from "./CreateTask";
 import Card from "./Card";
 
 
@@ -190,7 +190,7 @@ const TodoList = () => {
           </div>
         </div>
       </div>
-      <CreateTask
+      <CreateTaskPopup
         toggle={toggle}
         modal={modal}
         save={saveTask}
