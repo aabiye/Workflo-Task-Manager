@@ -3,39 +3,38 @@ import CreateTask from "./CreateTask";
 import Card from "./Card";
 import { FaCheck, FaPlusCircle, FaTrash } from "react-icons/fa";
 
-const TodoList = () => {
-  {
-    /* first method */
-  }
 
+
+const TodoList = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
 
-  useEffect(() => {
-    let arr = localStorage.getItem("taskList");
+  // useEffect(() => {
+  //   let arr = localStorage.getItem("taskList");
 
-    if (arr) {
-      let obj = JSON.parse(arr);
-      setTaskList(obj);
-    }
-  }, []);
+  //   if (arr) {
+  //     let obj = JSON.parse(arr);
+  //     setTaskList(obj);
+  //   }
+  // }, []);
 
-  const deleteTask = (index) => {
-    let tempList = taskList;
-    tempList.splice(index, 1);
-    localStorage.setItem("taskList", JSON.stringify(tempList));
-    setTaskList(tempList);
-    window.location.reload();
-  };
+  // const deleteTask = (index) => {
+  //   let tempList = taskList;
+  //   tempList.splice(index, 1);
+  //   localStorage.setItem("taskList", JSON.stringify(tempList));
+  //   setTaskList(tempList);
+  //   window.location.reload();
+  // };
 
-  const updateListArray = (obj, index) => {
-    let tempList = taskList;
-    tempList[index] = obj;
-    localStorage.setItem("taskList", JSON.stringify(tempList));
-    setTaskList(tempList);
-    window.location.reload();
-  };
+  // const updateListArray = (obj, index) => {
+  //   let tempList = taskList;
+  //   tempList[index] = obj;
+  //   localStorage.setItem("taskList", JSON.stringify(tempList));
+  //   setTaskList(tempList);
+  //   window.location.reload();
+  // };
 
+  
   const toggle = () => {
     setModal(!modal);
   };
@@ -48,22 +47,27 @@ const TodoList = () => {
     setModal(false);
   };
 
-  {
-    /* second method */
-  }
-
   const [todos, setTodos] = useState([]);
   const [inprogress, setInprogress] = useState([]);
   const [completed, setCompleted] = useState([]);
 
-  const [input, setInput] = useState("");
+  const [taskName, setTaskName] = useState("");
+  const [description, setDescription] = useState("");
+  const [assignedTo, setAssignedTo] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [priorityLevel, setPriorityLevel] = useState("");
 
   const addTodo = () => {
     const todo = {
       id: Math.floor(Math.random() * 1000),
-      text: input,
+      taskName: taskName,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: dueDate,
+      priorityLevel: priorityLevel,
     };
     setTodos([todo, ...todos]);
+    console.log(todo);
   };
 
   const addToProgress = (id) => {
@@ -85,7 +89,7 @@ const TodoList = () => {
   const addtoCompleted = (id) => {
     const item = inprogress.find((x) => x.id === id);
     setCompleted([item, ...completed]);
-    
+
     const filterarray = inprogress.filter((x) => x.id !== id);
     setInprogress(filterarray);
   };
@@ -96,42 +100,70 @@ const TodoList = () => {
     setCompleted(filterarray);
   };
 
+  const colors = [
+    {
+      primaryColor: "#5D93E1",
+      secondaryColor: "#ECF3FC",
+    },
+    {
+      primaryColor: "#F9D288",
+      secondaryColor: "#FEFAF1",
+    },
+    {
+      primaryColor: "#5DC250",
+      secondaryColor: "#F2FAF1",
+    },
+    {
+      primaryColor: "#F48687",
+      secondaryColor: "#FDF1F1",
+    },
+    {
+      primaryColor: "#B964F7",
+      secondaryColor: "#F3F0FD",
+    },
+  ];
+
   return (
     <>
       <div className="header">
-        <h2 className="title">
-          WORK<span className="flo">FLO</span>
-        </h2>
-        <div className="row">
-          <div className="col taskbtn">
+        <h3 className="title">
+          WORK<span class="flo">FLO</span>
+        </h3>
+        <div class="row">
+          <div class="col">
+            <div class="taskbtn">
               <button
-                className="btn btn-outline-dark form-control rounded-pill" id="creatTaskBtn"
+                className="btn btn-outline-primary btn-lg btn-block rounded-pill"
                 onClick={() => setModal(true)}
               >
                 Create a Task
               </button>
+            </div>
           </div>
-          <div className="col">
-            <div className="input-group" id="search-container">
+          <div>
+            <div></div>
+          </div>
+          <div class="col">
+            <div class="input-group" id="search-container">
               <input
                 type="search"
-                className="form-control rounded"
+                class="form-control rounded"
                 placeholder="Search for a task"
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
-              <button type="button" className="btn btn-outline-dark">
+              <button type="button" class="btn btn-outline-primary">
                 Search
               </button>
             </div>
           </div>
-          <div className="col">
-            <div className="select-header">
+          <div class="col">
+            <div class="select-header">
               <select
-                className="form-select" id="filterBy"
+                class="form-select form-select-lg"
                 aria-label="select something"
               >
-                <option defaultValue>Filter By</option>
+                <option selected>Filter By</option>
                 <option value="1">Priority</option>
                 <option value="2">Asignee</option>
                 <option value="3">Alphabetical</option>
@@ -140,104 +172,18 @@ const TodoList = () => {
           </div>
         </div>
       </div>
-      {/* first method */}
+
       <div className="task-container">
         <div className="todos_wrapper">
           <div className="todos_list">
-            <h3 className="todo_title todo">Todo List</h3>
-            {taskList &&
-              taskList.map((obj, index) => (
-                <Card
-                  taskObj={obj}
-                  index={index}
-                  key={index}
-                  deleteTask={deleteTask}
-                  updateListArray={updateListArray}
-                />
-              ))}
-          </div>
-          <div className="todos_list">
-            <h3 className="todo_title inprogress">In Progress</h3>
-          </div>
-          <div className="todos_list">
-            <h3 className="todo_title complete">Completed</h3>
-          </div>
-        </div>
-
-        <CreateTask toggle={toggle} modal={modal} save={saveTask} />
-      </div>
-
-      {/* second method */}
-      <div className="App">
-      <div className="container">
-      
-        <form className="form_todo">
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter Your Todo"
-            name="text"
-          />
-          <button type="button" className="btn" onClick={() => addTodo()}>
-          Add a task
-            <FaPlusCircle className="icon" /
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            >
-          </button>
-        </form>
-
-        <div className="todos_wrapper">
-          <div className="todos_list">
-            <h3 className="todo_title">Todos List</h3>
+            <h3 className="todo_title todo">Todos List</h3>
             {todos.map((item, index) => (
               <div className="todo_card" key={item.id}>
-                <p className="card_text">{item.text}</p>
+                <p className="card_text">{item.taskName}</p>
+                <p className="card_text">{item.description}</p>
+                <p className="card_text">{item.assignedTo}</p>
+                <p className="card_text">{item.dueDate}</p>
+                <p className="card_text">{item.priorityLevel}</p>
                 <FaCheck
                   onClick={() => addToProgress(item.id)}
                   className="icon-check-todo"
@@ -249,11 +195,16 @@ const TodoList = () => {
               </div>
             ))}
           </div>
+          
           <div className="todos_list">
-            <h3 className="todo_title">InProgress</h3>
+            <h3 className="todo_title inprogress">InProgress</h3>
             {inprogress.map((item, index) => (
               <div className="progress_card" key={item.key}>
-                <p className="card_text">{item.text}</p>
+                <p className="card_text">{item.taskName}</p>
+                <p className="card_text">{item.description}</p>
+                <p className="card_text">{item.assignedTo}</p>
+                <p className="card_text">{item.dueDate}</p>
+                <p className="card_text">{item.priorityLevel}</p>
                 <FaCheck
                   onClick={() => addtoCompleted(item.id)}
                   className="icon-progress-todo"
@@ -266,10 +217,14 @@ const TodoList = () => {
             ))}
           </div>
           <div className="todos_list">
-            <h3 className="todo_title">Completed</h3>
+            <h3 className="todo_title complete">Completed</h3>
             {completed.map((item, index) => (
               <div className="completed_card" key={item.id}>
-                <p className="card_text">{item.text}</p>
+                <p className="card_text">{item.taskName}</p>
+                <p className="card_text">{item.description}</p>
+                <p className="card_text">{item.assignedTo}</p>
+                <p className="card_text">{item.dueDate}</p>
+                <p className="card_text">{item.priorityLevel}</p>
                 <FaTrash
                   onClick={() => deleteCompleted(item.id)}
                   className="icon-trash-todo"
@@ -277,11 +232,24 @@ const TodoList = () => {
               </div>
             ))}
           </div>
+        </div>
       </div>
-    </div>
-  );
-
-      </div>
+      <CreateTask
+        toggle={toggle}
+        modal={modal}
+        save={saveTask}
+        addTodo={addTodo}
+        taskName={taskName}
+        description={description}
+        assignedTo={assignedTo}
+        dueDate={dueDate}
+        priorityLevel={priorityLevel}
+        setTaskName={setTaskName}
+        setDescription={setDescription}
+        setAssignedTo={setAssignedTo}
+        setDueDate={setDueDate}
+        setPriorityLevel={setPriorityLevel}
+      />
     </>
   );
 };
