@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import CreateTask from "./CreateTask";
-import Card from "./Card";
-
 
 
 const TodoList = () => {
@@ -99,9 +97,6 @@ const TodoList = () => {
   return (
     <>
       <div className="header">
-        <h2 className="title">
-          WORK<span className="flo">FLO</span>
-        </h2>
         <div className="row">
           <div className="col">
             <div className="taskbtn">
@@ -113,40 +108,12 @@ const TodoList = () => {
               </button>
             </div>
           </div>
-
-          <div className="col">
-            <div className="input-group" id="search-container">
-              <input
-                type="search"
-                className="form-control rounded"
-                placeholder="Search for a task"
-                aria-label="Search"
-                aria-describedby="search-addon"
-              />
-              <button type="button" className="btn btn-outline-dark">
-                Search
-              </button>
-            </div>
-          </div>
-          <div className="col">
-            <div className="select-header">
-              <select
-                className="form-select"
-                aria-label="select something"
-              >
-                <option defaultValue>Filter By</option>
-                <option value="1">Priority</option>
-                <option value="2">Asignee</option>
-                <option value="3">Alphabetical</option>
-              </select>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="task-container">
-        <div className="todos_wrapper">
-          <div className="todos_list">
+      <div className="container-fluid">
+        <div className="todos_wrapper row" id="todoWrapper">
+          <div className="todos_list col-sm-4" id="todo-card">
             <h3 className="todo_title todo">To Do</h3>
             {todos.map((item, index) => (
               <div className="todo_card" key={item.id}>
@@ -160,8 +127,8 @@ const TodoList = () => {
               </div>
             ))}
           </div>
-          
-          <div className="todos_list">
+
+          <div className="todos_list col-sm-4" id="inProgress-card">
             <h3 className="todo_title inprogress">In Progress</h3>
             {inprogress.map((item, index) => (
               <div className="progress_card" key={item.key}>
@@ -175,7 +142,7 @@ const TodoList = () => {
               </div>
             ))}
           </div>
-          <div className="todos_list">
+          <div className="todos_list col-sm-4" id="complete-card">
             <h3 className="todo_title complete">Completed</h3>
             {completed.map((item, index) => (
               <div className="completed_card" key={item.id}>
