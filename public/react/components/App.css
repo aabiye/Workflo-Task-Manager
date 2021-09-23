@@ -11,6 +11,8 @@
   font-style: italic;
 }
 
+
+
 #creatTaskBtn {
   margin-top: 15px;
   text-align: center;
@@ -284,6 +286,7 @@
     
   }
 }
+
 /*responsive design*/
 .home {
   margin-left:  auto;
@@ -403,7 +406,7 @@
 }
 
 .footer .footer-center p a {
-  color: #0099ff;
+  color: white;
   text-decoration: none;
 }
 
@@ -422,7 +425,7 @@
 }
 
 .footer h2 span {
-  color: #0099ff;
+  color:white;
 }
 
 .footer .menu {
@@ -443,7 +446,11 @@
 }
 
 .footer .name {
-  color: #0099ff;
+  color: white
+}
+
+.footer .name {
+  color: white;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
