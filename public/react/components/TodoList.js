@@ -48,6 +48,31 @@ const TodoList = () => {
     setModal(false);
   };
 
+
+  
+    function handleFilter(filterStr){
+      console.log("task", tasks)
+      setFilter(filterStr)
+      console.log('filterStr',filteredTasks)
+      const filteredTasks = tasks.filter(tasks => tasks.priority == filter)
+      setTasks(filteredTasks)
+      console.log('filteredTasks',filteredTasks)
+    }
+  
+    return(
+      <div>
+        {
+          tasks.map((taskList, idx) => <taskList key={idx} />)
+        }
+        <button onClick={() => handleFilter('Low')}>Set Filter Low</button>
+        <button onClick={() => handleFilter('High')}>Set Filter High</button>
+      </div>
+    )
+  
+
+
+
+
   {
     /* second method */
   }
