@@ -9,9 +9,9 @@ const Header = () => {
       <Navbar bg="light" variant="light">
         <Navbar.Brand href="#home">
           {" "}
-          <h4 className="titleNav">
+          <h2 className="titleNav">
             WORK<span className="flo">FLO</span>
-          </h4>
+          </h2>
         </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>

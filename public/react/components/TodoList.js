@@ -74,9 +74,9 @@ const TodoList = () => {
   return (
     <>
       <div className="header">
-        <h2 className="title">
+        {/* <h2 className="title">
           WORK<span className="flo">FLO</span>
-        </h2>
+        </h2> */}
         <div className="row">
           <div className="col">
             <div className="taskbtn">
