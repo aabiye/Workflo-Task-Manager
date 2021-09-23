@@ -283,6 +283,8 @@
     flex: 0 1 calc(23% - 1em);
     border: 2px solid white; 
     padding: 15px 15px 15px 15px; 
+    margin: auto;
+    width: 60%;
     
   }
 }
@@ -301,6 +303,12 @@
   margin-bottom: -150px;
 
 
+}
+
+#card-imgs{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 /*footer design*/
