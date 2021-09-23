@@ -16,7 +16,7 @@
 #creatTaskBtn {
   margin-top: 15px;
   text-align: center;
-  width: 90%;
+  width: 50%;
 }
 
 #search-container {
@@ -97,11 +97,8 @@
 
 /*to design the cards*/
 
-.todos_wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin-top: 20px;
+#todoWrapper {
+  margin-top: 100px;
 }
 
 .todo_title {
@@ -135,6 +132,7 @@
   height: 68vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .todo_card {
@@ -282,15 +280,6 @@
 /*responsive design*/
 @media screen and (min-width: 100em) {
   .outter-card {
-    flex: 0 1 calc(23% - 1em);
-    border: 2px solid white; 
-    padding: 15px 15px 15px 15px; 
-    
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .task-container {
     flex: 0 1 calc(23% - 1em);
     border: 2px solid white; 
     padding: 15px 15px 15px 15px; 
@@ -453,6 +442,10 @@
 }
 
 .footer .menu a:hover {
+  color: #0099ff;
+}
+
+.footer .name {
   color: white
 }
 
