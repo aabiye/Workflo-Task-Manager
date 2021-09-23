@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import CreateTaskPopup from "./CreateTask";
-import Card from "./Card";
-
-
 
 const TodoList = () => {
   const [modal, setModal] = useState(false);
-  const [taskList, setTaskList] = useState([]);
-  
+
   const toggle = () => {
     setModal(!modal);
   };
+
+  const [taskList, setTaskList] = useState([]);
 
   const saveTask = (taskObj) => {
     let tempList = taskList;
@@ -73,29 +71,6 @@ const TodoList = () => {
     setCompleted(filterarray);
   };
 
-  const colors = [
-    {
-      primaryColor: "#5D93E1",
-      secondaryColor: "#ECF3FC",
-    },
-    {
-      primaryColor: "#F9D288",
-      secondaryColor: "#FEFAF1",
-    },
-    {
-      primaryColor: "#5DC250",
-      secondaryColor: "#F2FAF1",
-    },
-    {
-      primaryColor: "#F48687",
-      secondaryColor: "#FDF1F1",
-    },
-    {
-      primaryColor: "#B964F7",
-      secondaryColor: "#F3F0FD",
-    },
-  ];
-
   return (
     <>
       <div className="header">
@@ -106,7 +81,8 @@ const TodoList = () => {
           <div className="col">
             <div className="taskbtn">
               <button
-                className="btn btn-outline-dark btn-block rounded-pill" id="creatTaskBtn"
+                className="btn btn-outline-dark btn-block rounded-pill"
+                id="creatTaskBtn"
                 onClick={() => setModal(true)}
               >
                 Create a Task
@@ -130,10 +106,7 @@ const TodoList = () => {
           </div>
           <div className="col">
             <div className="select-header">
-              <select
-                className="form-select"
-                aria-label="select something"
-              >
+              <select className="form-select" aria-label="select something">
                 <option defaultValue>Filter By</option>
                 <option value="1">Priority</option>
                 <option value="2">Asignee</option>
@@ -155,12 +128,18 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <i className='bx bxs-check-square' onClick={() => addToProgress(item.id)}></i>
-                <i className='bx bxs-trash' onClick={() => deleteTodo(item.id)}></i>
+                <i
+                  className="bx bxs-check-square"
+                  onClick={() => addToProgress(item.id)}
+                ></i>
+                <i
+                  className="bx bxs-trash"
+                  onClick={() => deleteTodo(item.id)}
+                ></i>
               </div>
             ))}
           </div>
-          
+
           <div className="todos_list">
             <h3 className="todo_title inprogress">In Progress</h3>
             {inprogress.map((item, index) => (
@@ -170,8 +149,14 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <i className='bx bxs-check-square' onClick={() => addtoCompleted(item.id)}></i>
-                <i className='bx bxs-trash' onClick={() => deleteInProgress(item.id)}></i>
+                <i
+                  className="bx bxs-check-square"
+                  onClick={() => addtoCompleted(item.id)}
+                ></i>
+                <i
+                  className="bx bxs-trash"
+                  onClick={() => deleteInProgress(item.id)}
+                ></i>
               </div>
             ))}
           </div>
@@ -184,7 +169,10 @@ const TodoList = () => {
                 <p className="card_text">{item.assignedTo}</p>
                 <p className="card_text">{item.dueDate}</p>
                 <p className="card_text">{item.priorityLevel}</p>
-                <i className='bx bxs-trash' onClick={() => deleteCompleted(item.id)}></i>
+                <i
+                  className="bx bxs-trash"
+                  onClick={() => deleteCompleted(item.id)}
+                ></i>
               </div>
             ))}
           </div>
